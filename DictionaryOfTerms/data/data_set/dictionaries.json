@@ -1,0 +1,14 @@
+[
+  {
+    "Name": "Программирование",
+    "Path": "C:\\Users\\IRONIN\\RiderProjects\\DictionaryOfTerms-master\\DictionaryOfTerms\\data\\data_set\\termsProgramming.json"
+  },
+  {
+    "Name": "Биология",
+    "Path": "C:\\Users\\IRONIN\\RiderProjects\\DictionaryOfTerms-RGZ\\DictionaryOfTerms\\data\\data_set\\termsBiology.json"
+  },
+  {
+    "Name": "Новый словарь ",
+    "Path": "C:\\Users\\IRONIN\\RiderProjects\\DictionaryOfTerms-RGZ\\DictionaryOfTerms\\data\\data_set\\Новый словарь .json"
+  }
+]

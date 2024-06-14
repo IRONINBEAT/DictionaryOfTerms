@@ -1,0 +1,78 @@
+﻿<reactiveUi:ReactiveUserControl x:TypeArguments="viewModel:DictionaryChoiceViewModel" x:Class="DictionaryOfTerms.DictionaryChoice"
+                                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                xmlns:reactiveUi="http://reactiveui.net"
+                                xmlns:viewModel="clr-namespace:DictionaryOfTerms.app.view_model"
+                                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                                xmlns:domain="clr-namespace:DictionaryOfTerms.domain"
+                                mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewModel:DictionaryChoiceViewModel />
+        
+    </UserControl.DataContext>
+    <Grid Background="#B9BAA3">
+        <reactiveUi:RoutedViewHost
+            Grid.Row="0"
+            x:Name="RoutedViewHost"
+            Router="{Binding Router}"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch">
+            <reactiveUi:RoutedViewHost.DefaultContent>
+                
+                <Grid>
+                    <StackPanel>
+   
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                            <Button Command="{Binding Add}" Margin="10" Foreground="Azure" Style="{StaticResource MaterialDesignFlatButton}" Content="Добавить">
+                                <Button.Background>
+                                    <SolidColorBrush Color="#2a9d6f" />
+                                </Button.Background>
+                            </Button>
+                            <Button Command="{Binding Delete}" Margin="10" Foreground="Azure" Style="{StaticResource MaterialDesignFlatButton}" Content="Удалить" >
+                                <Button.Background>
+                                    <SolidColorBrush Color="#A22C29" />
+                                </Button.Background>
+                            </Button>
+                            <Button Command="{Binding Edit}" Margin="10" Foreground="Azure" Style="{StaticResource MaterialDesignFlatButton}" Content="Изменить" >
+                                <Button.Background>
+                                    <SolidColorBrush Color="#FF7400" />
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                        <Border MinWidth="400" Width="550" Height="550" Margin="50" Background="#D6D5C9"
+                                VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20" MaxWidth="650"
+                                CornerRadius="20">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="15" Color="Black" ShadowDepth="0" />
+                            </Border.Effect>
+                            <StackPanel>
+                                <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
+                                    <TextBlock Text="Словари" TextAlignment="Center" FontWeight="Bold" FontSize="20" />
+                                </Border>
+                                <ListView SelectedItem="{Binding Dictionary}" ItemsSource="{Binding  AllDictionaries}" Margin="0 20 0 0" FontSize="20" Height="460" Background="#D6D5C9">
+                                    
+                                </ListView>
+                            </StackPanel>
+                            
+                        </Border>
+                        <Button Margin="0 0 0 25" HorizontalAlignment="Center" Command="{Binding Open}"  Foreground="Azure" Style="{StaticResource MaterialDesignFlatButton}" Content="Открыть" >
+                            <Button.Background>
+                                <SolidColorBrush Color="CadetBlue" />
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    
+                </Grid>
+            </reactiveUi:RoutedViewHost.DefaultContent>
+            <reactiveUi:RoutedViewHost.ViewLocator>
+                <viewModel:AppViewLocator />
+            </reactiveUi:RoutedViewHost.ViewLocator>
+
+        </reactiveUi:RoutedViewHost>
+        
+    </Grid>
+</reactiveUi:ReactiveUserControl>
